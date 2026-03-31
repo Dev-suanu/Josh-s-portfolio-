@@ -54,7 +54,7 @@ const Projects = () => {
               className="p-6 bg-zinc-900/20 border border-white/5 rounded-2xl relative overflow-hidden"
             >
               <div className="flex justify-between items-start mb-4">
-                <span className="text-white font-black text-xl uppercase italic tracking-tighter">
+                <span className="text-white font-black text-xl uppercase tracking-tighter">
                   {item.project}
                 </span>
                 <div className="flex items-center gap-1.5">
@@ -70,7 +70,7 @@ const Projects = () => {
                 </div>
                 <div>
                   <p className="text-zinc-600 text-[9px] uppercase tracking-widest font-bold">Impact_Log</p>
-                  <p className="text-zinc-500 text-xs leading-relaxed italic mt-1">// {item.impact}</p>
+                  <p className="text-zinc-500 text-xs leading-relaxed mt-1"> {item.impact}</p>
                 </div>
               </div>
               

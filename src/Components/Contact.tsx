@@ -25,9 +25,9 @@ const Contact = () => {
               <div className="w-2 h-2 bg-cyan-400 animate-pulse" />
               <span className="text-cyan-400 text-[10px] tracking-[0.4em] uppercase font-bold">Signal_Status: Open</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase mb-8">
+            <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase mb-8">
               Establish <br />
-              <span className="text-zinc-800 text-6xl md:text-7xl">Contact</span>
+              <span className="text-zinc-800 text-5xl md:text-7xl">Contact</span>
             </h2>
             <p className="text-zinc-500 text-sm md:text-base max-w-md leading-relaxed mb-10">
               Currently accepting mandates for community scaling, protocol moderation, and technical narrative architecture. Reach out via the secure channels below.

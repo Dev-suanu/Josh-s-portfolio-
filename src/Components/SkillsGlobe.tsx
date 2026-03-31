@@ -38,7 +38,7 @@ const skillModules = [
 
 const SkillsGlobe = () => {
   return (
-    <section id="skills" className="py-24 px-6 sm:px-12 bg-[#050505] font-mono border-t border-white/5">
+    <section id="skills" className="py-18 px-6 sm:px-12 bg-[#050505] font-mono border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         
         {/* Technical Header */}
@@ -47,7 +47,7 @@ const SkillsGlobe = () => {
             <div className="w-2 h-2 bg-cyan-400 animate-pulse" />
             <span className="text-cyan-400 text-xs tracking-[0.3em] uppercase">System_Diagnostics</span>
           </div>
-          <h2 className="text-4xl md:text-4xl font-black text-white tracking-tighter uppercase">
+          <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase">
             Skill <span className="text-cyan-400">Inventory</span>
           </h2>
         </div>
@@ -60,7 +60,7 @@ const SkillsGlobe = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-[#080808] p-10 group hover:bg-zinc-900/40 transition-colors duration-500 relative"
+              className="bg-[#080808] p-8 group hover:bg-zinc-900/40 transition-colors duration-500 relative"
             >
               {/* Module Metadata */}
               <div className="flex justify-between items-start mb-8">
