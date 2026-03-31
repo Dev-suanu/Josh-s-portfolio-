@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define the display font for headings */
+  --font-display: "Space Grotesk", sans-serif;
+  
+  /* Define the mono font for data/metrics */
+  --font-mono: "Space Mono", monospace;
+
+  /* Custom "Web3" Colors for your footprint theme */
+  --color-neon-cyan: #22d3ee;
+  --color-neon-purple: #a855f7;
+}
+
+@theme {
+  --animation-glitch: glitch 2s infinite;
+  --animation-scanline: scanline 6s linear infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(34, 211, 238, 0.05) 50%
+  );
+  background-size: 100% 4px;
+}
+
+@keyframes float-tilt {
+  0% { transform: rotateY(-10deg) rotateX(5deg) translateY(0px); }
+  50% { transform: rotateY(10deg) rotateX(-5deg) translateY(-15px); }
+  100% { transform: rotateY(-10deg) rotateX(5deg) translateY(0px); }
+}
+.animate-float-tilt {
+  animation: float-tilt 6s ease-in-out infinite;
+}
