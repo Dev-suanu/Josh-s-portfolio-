@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
-  const roles = ["Web3 Ambassador", "DAO Moderator", "Content Creator"];
+  const roles = ["Web3 Ambassador", "Space Host", "Content Creator"];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -15,6 +15,17 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-[70vh] flex flex-col lg:flex-row items-center justify-between py-20 px-10 bg-[#080808] rounded-lg border border-white/5 mb-12 overflow-hidden font-display">
       
+      {/* Grid Background Overlay */}
+      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+        style={{ 
+          backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`, 
+          backgroundSize: '30px 30px' 
+        }} 
+      />
+      
+      {/* Radial Gradient Glow - Subtle Tone */}
+      <div className="absolute -top-[15%] -left-[10%] w-[50%] h-[50%] bg-cyan-500/5 blur-[160px] rounded-full z-0 pointer-events-none" />
+
       {/* Content Section */}
       <div className="lg:w-1/2 text-center lg:text-left z-10">
         <div className="mb-4">
@@ -42,23 +53,28 @@ const Hero = () => {
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-gray-500 font-mono text-lg max-w-lg mt-6 mb-10"
+          className="text-gray-400 font-mono text-lg max-w-lg mt-6 mb-10"
         >
           Helping DAOs and DeFi protocols turn users into long-term advocates through strategic moderation and transparent governance.
         </motion.p>
 
         <div className="flex gap-4 justify-center lg:justify-start">
-          <button className="font-mono px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-cyan-400 transition-colors flex items-center gap-2 group shadow-[0_0_20px_rgba(34,211,238,0.3)]">
-            PROOF OF WORK
-            <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </button>
-        </div>
+  <a 
+    href="https://x.com/ej_onx" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="font-mono px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-cyan-400 transition-colors flex items-center gap-2 group shadow-[0_0_20px_rgba(34,211,238,0.3)]"
+  >
+    CONTACT ME
+    <svg className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>
+  </a>
+</div>
       </div>
 
       {/* Floating 3D Image Section */}
-      <div className="lg:w-1/2 flex justify-center mt-12 lg:mt-0 perspective-1000">
+      <div className="lg:w-1/2 flex justify-center mt-12 lg:mt-0 perspective-1000 z-10">
         <div className="relative w-64 h-64 md:w-80 md:h-80 preserve-3d animate-float-tilt">
           
           {/* Front Image */}
@@ -66,15 +82,13 @@ const Hero = () => {
             <img src="/josh.jpg" alt="PFP Front" className="w-full h-full object-cover" />
           </div>
 
-          {/* Back Image (Same image, but visible from behind) */}
+          {/* Back Image */}
           <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl border-2 border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.2)] overflow-hidden">
             <img src="/josh.jpg" alt="PFP Back" className="w-full h-full object-cover brightness-50" />
-            {/* Added a text overlay so the back feels like a "card" */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                <span className="font-mono text-white text-xs uppercase tracking-[0.3em] font-bold">Verified ID</span>
             </div>
           </div>
-          
         </div>
       </div>
 

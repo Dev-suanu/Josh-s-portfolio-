@@ -1,100 +1,72 @@
 import { motion } from "framer-motion";
 
-const skillModules = [
-  {
-    id: "MOD_01",
-    title: "Community Moderation",
-    details: [
-      "Crisis Management & Conflict Resolution",
-      "Discord/Telegram Architecture & Security",
-      "Sybil Resistance & Bot Mitigation",
-      "24/7 Global Ecosystem Monitoring"
-    ],
-    status: "SYSTEM_ACTIVE"
-  },
-  {
-    id: "MOD_02",
-    title: "Content Creation",
-    details: [
-      "Technical Thread & Article Authoring",
-      "Protocol Documentation & Mirror.xyz Posts",
-      "Educational Video Scripting",
-      "Narrative Building & Brand Voice"
-    ],
-    tag: " ",
-    status: "SYSTEM_ACTIVE"
-  },
-  {
-    id: "MOD_03",
-    title: "Community Ops",
-    details: ["Protocol Moderation", "Sybil Resistance Ops", "Support Architecture"],
-  },
-  {
-    id: "MOD_04",
-    title: "Developer Relations",
-    details: ["Integration Support", "Cairo/Solidity Basics", "SDK Documentation"],
-  }
+const skills = [
+  "Space Hosting",
+  "Community Moderation",
+  "Web3 Brand Ambassadorship",
+  "Technical Content Creation",
 ];
 
 const SkillsGlobe = () => {
   return (
-    <section id="skills" className="py-18 px-6 sm:px-12 bg-[#050505] font-mono border-t border-white/5">
+    <section id="skills" className="py-10 pt-15 px-6 sm:px-12 bg-[#050505] font-mono border-t border-white/5 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Technical Header */}
-        <div className="mb-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
           <div className="flex items-center gap-3 mb-2">
             <div className="w-2 h-2 bg-cyan-400 animate-pulse" />
-            <span className="text-cyan-400 text-xs tracking-[0.3em] uppercase">System_Diagnostics</span>
+            <span className="text-cyan-400 text-xs tracking-[0.3em] uppercase">Service_Report</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase">
-            Skill <span className="text-cyan-400">Inventory</span>
+            What <span className="text-cyan-400">I Do</span>
           </h2>
-        </div>
+          <p className="text-zinc-500 text-md mt-3 max-w-lg font-sans leading-relaxed">
+            Specialized in bridging the gap between technical protocols and active community participation.
+          </p>
+        </motion.div>
 
-        {/* Module Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
-          {skillModules.map((module) => (
-            <motion.div
-              key={module.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="bg-[#080808] p-8 group hover:bg-zinc-900/40 transition-colors duration-500 relative"
-            >
-              {/* Module Metadata */}
-              <div className="flex justify-between items-start mb-8">
-                <span className="text-[10px] text-zinc-600 tracking-widest">{module.id}</span>
-                <span className="text-[10px] text-cyan-400/50 group-hover:text-cyan-400 transition-colors">
-                   {module.tag}
-                </span>
-              </div>
+        {/* Minimalist Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {skills.map((skill, index) => {
+            // Left column (0, 2) slides from left (-x)
+            // Right column (1, 3) slides from right (+x)
+            const isLeftColumn = index % 2 === 0;
 
-              <h3 className="text-2xl font-bold text-white mb-6 tracking-tight group-hover:translate-x-2 transition-transform duration-300">
-                {module.title}
-              </h3>
-
-              <ul className="space-y-4">
-                {module.details.map((detail) => (
-                  <li key={detail} className="flex items-start gap-3 group/item">
-                    <div className="mt-1.5 w-1 h-1 bg-zinc-700 group-hover/item:bg-cyan-400 transition-colors" />
-                    <span className="text-zinc-500 text-sm group-hover/item:text-zinc-300 transition-colors">
-                      {detail}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Decorative Corner Scan-line */}
-              <div className="absolute bottom-0 left-0 w-0 h-[1px] bg-cyan-400 group-hover:w-full transition-all duration-700" />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Bottom Status Bar */}
-        <div className="mt-8 flex justify-between items-center text-[10px] text-zinc-600 uppercase tracking-widest">
-           <p>Last Sync: {new Date().toLocaleDateString()}</p>
-           <p>Connection: Stable</p>
+            return (
+              <motion.div
+                key={index}
+                initial={{ 
+                  opacity: 0, 
+                  x: isLeftColumn ? -60 : 60 
+                }}
+                whileInView={{ 
+                  opacity: 1, 
+                  x: 0 
+                }}
+                viewport={{ once: true }}
+                transition={{ 
+                  duration: 0.7, 
+                  delay: index * 0.1,
+                  ease: [0.22, 1, 0.36, 1] // Custom cubic-bezier for a smooth "snap"
+                }}
+                className="group border border-white/5 bg-zinc-900/10 p-5 hover:bg-zinc-900/30 hover:border-cyan-400/20 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-1 h-3 bg-zinc-800 group-hover:bg-cyan-400 transition-colors" />
+                  <h3 className="text-lg font-bold text-zinc-400 group-hover:text-white uppercase tracking-tight transition-colors">
+                    {skill}
+                  </h3>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

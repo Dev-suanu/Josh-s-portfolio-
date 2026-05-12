@@ -1,92 +1,96 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const [copied, setCopied] = useState(false);
-  const walletAddress = "0x1234...abcd"; // Replace with your actual address
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(walletAddress);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section id="contact" className="py-24 px-6 sm:px-12 bg-[#050505] font-mono border-t border-white/5 relative overflow-hidden">
-      {/* Background Decorative Grid */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]" />
+    <section id="contact" className="py-32 px-6 sm:px-12 bg-[#050505] font-mono border-t border-white/5 relative overflow-hidden">
+      
+      {/* Cinematic Background Accents */}
+      <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-cyan-500/5 blur-[120px] rounded-full" />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
           
-          {/* Left Side: Call to Action */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-2 bg-cyan-400 animate-pulse" />
-              <span className="text-cyan-400 text-[10px] tracking-[0.4em] uppercase font-bold">Signal_Status: Open</span>
-            </div>
-            <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter uppercase mb-8">
-              Establish <br />
-              <span className="text-zinc-800 text-5xl md:text-7xl">Contact</span>
-            </h2>
-            <p className="text-zinc-500 text-sm md:text-base max-w-md leading-relaxed mb-10">
-              Currently accepting mandates for community scaling, protocol moderation, and technical narrative architecture. Reach out via the secure channels below.
-            </p>
+          {/* Left: Huge Title Block (7 Cols) */}
+          <div className="lg:col-span-7">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-8"
+            >
+              <div className="w-12 h-[1px] bg-cyan-400" />
+              <span className="text-cyan-400 text-[10px] tracking-[0.5em] uppercase font-bold">Avaliable to work</span>
+            </motion.div>
             
-            {/* Wallet / Tip Jar (Web3 Style) */}
-            <div className="p-6 bg-zinc-900/30 border border-white/5 rounded-2xl inline-block group">
-               <p className="text-[9px] text-zinc-600 uppercase tracking-widest mb-3 font-bold">Public_Address (ERC-20)</p>
-               <div className="flex items-center gap-4">
-                 <code className="text-cyan-400/80 text-xs md:text-sm">{walletAddress}</code>
-                 <button 
-                  onClick={copyToClipboard}
-                  className="px-3 py-1 bg-white/5 hover:bg-cyan-400 hover:text-black text-[10px] text-white font-bold transition-all border border-white/10 rounded-md"
-                 >
-                   {copied ? "COPIED_HASH" : "COPY_LINK"}
-                 </button>
-               </div>
-            </div>
+            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-[0.8] mb-4">
+              establish<br />
+              <span className="text-transparent border-b-2 border-zinc-800 pb-2 italic" 
+                    style={{ WebkitTextStroke: '1px #27272a' }}>contact</span>
+            </h2>
           </div>
 
-          {/* Right Side: Social Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { name: "Twitter / X", label: "@yourhandle", link: "#", color: "hover:border-blue-400" },
-              { name: "Telegram", label: "t.me/yourname", link: "#", color: "hover:border-cyan-400" },
-              { name: "Discord", label: "user#0000", link: "#", color: "hover:border-indigo-400" },
-              { name: "Email", label: "hi@workwave.xyz", link: "mailto:hi@workwave.xyz", color: "hover:border-white" },
-            ].map((social) => (
-              <motion.a
-                key={social.name}
-                href={social.link}
-                whileHover={{ y: -5 }}
-                className={`p-8 bg-[#080808] border border-white/5 rounded-2xl flex flex-col justify-between transition-colors duration-300 ${social.color} group`}
-              >
-                <div className="flex justify-between items-start">
-                  <span className="text-[10px] text-zinc-600 font-bold tracking-tighter uppercase">{social.name}</span>
-                  <div className="w-1 h-1 bg-zinc-800 group-hover:bg-white transition-colors" />
+          {/* Right: The Connection Card (5 Cols) */}
+          <div className="lg:col-span-5 w-full">
+            <motion.a
+              href="https://x.com/ej_onx"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group relative block p-8 md:p-12 bg-zinc-900/10 border border-white/5 hover:border-cyan-400/40 transition-all duration-700 rounded-sm overflow-hidden"
+            >
+              {/* Card Scanline */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[linear-gradient(to_bottom,transparent_0%,rgba(34,211,238,0.05)_50%,transparent_100%)] bg-[size:100%_20px] animate-scan" />
+              
+              <div className="flex flex-col gap-8">
+                <div className="flex justify-between items-center">
+                  <p className="text-[10px] text-zinc-600 tracking-[0.3em] font-bold uppercase">Transmission_Route</p>
+                  <div className="w-8 h-8 flex items-center justify-center bg-white text-black group-hover:bg-cyan-400 transition-colors">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </div>
                 </div>
-                <p className="text-white font-bold text-lg mt-6 tracking-tight">{social.label}</p>
-              </motion.a>
-            ))}
-          </div>
 
+                <div>
+                  <h3 className="text-4xl md:text-5xl font-black text-white tracking-tight group-hover:text-cyan-400 transition-colors">
+                    @ej_onx
+                  </h3>
+                  <p className="text-zinc-500 text-xs mt-4 leading-relaxed font-sans max-w-xs">
+                    Drop a DM for partnerships, community scaling, or technical advisory.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 group-hover:gap-6 transition-all">
+                  <span className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">Connect on X</span>
+                  <div className="h-[1px] flex-1 bg-white/10 group-hover:bg-cyan-400/50" />
+                </div>
+              </div>
+            </motion.a>
+          </div>
         </div>
 
-        {/* Footer Terminal Text */}
-        <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="font-mono text-[9px] text-zinc-700 uppercase tracking-[0.2em] flex gap-8">
-             <span>Protocol: HTTPS/TLS_1.2</span>
-             <span>Region: West_Africa_Node_01</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
-            <span className="text-zinc-500 text-[10px] uppercase font-black tracking-widest italic">
-              System Ready for Deployment
-            </span>
-          </div>
+        {/* Footer Meta */}
+        <div className="mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 opacity-40 hover:opacity-100 transition-opacity">
+                   <p>Powered by Setronix</p>
+
+          
+          
         </div>
       </div>
+
+      <style>{`
+        @keyframes scan {
+          from { background-position: 0 -100px; }
+          to { background-position: 0 100%; }
+        }
+        .animate-scan {
+          animation: scan 3s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

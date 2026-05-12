@@ -2,32 +2,25 @@ import { motion } from "framer-motion";
 
 const contributions = [
   {
-    project: "Uniswap DAO",
-    role: "Governance Moderator",
-    period: "2024 - PRESENT",
-    status: "ACTIVE",
-    impact: "Facilitated 50+ Snapshot proposals; resolved 200+ governance disputes.",
+    project: "Quant AI",
+    role: "Ambassador",
+    logo: "/quant.jpg",
+    description: "Developed comprehensive ecosystem narratives and educational content, driving awareness and onboarding new participants to the governance framework.",
+    link: "https://x.com/tryquantio?s=21" 
   },
   {
-    project: "Starknet",
+    project: "Courtesy Chain",
     role: "Ecosystem Ambassador",
-    period: "2023 - 2024",
-    status: "COMPLETED",
-    impact: "Authored 12 technical guides for Cairo 1.0; onboarded 500+ devs.",
-  },
-  {
-    project: "Mirror Protocol",
-    role: "Content Strategist",
-    period: "2023 - 2023",
-    status: "COMPLETED",
-    impact: "Generated 45k+ impressions via long-form protocol deep-dives.",
+    logo: "/chain.jpg", 
+    description: "Authored technical deep-dives and onboarding guides, successfully scaling the developer base by 200+ active users through clear technical storytelling.",
+    link: "https://x.com/CourtesyChainHQ"
   },
   {
     project: "WorkWave",
     role: "Founder / Architect",
-    period: "2024 - PRESENT",
-    status: "ACTIVE",
-    impact: "Built a decentralized talent-matching layer for Web3 contributors.",
+    logo: "/logo2.jpg",
+    description: "Architected a decentralized talent-matching layer for Web3 contributors.",
+    link: "https://useworkwave.vercel.app"
   }
 ];
 
@@ -38,99 +31,110 @@ const Projects = () => {
         
         {/* Header */}
         <div className="mb-12">
-          <p className="text-cyan-400 text-[9px] tracking-[0.4em] uppercase mb-2 font-bold">Proof_of_Contribution</p>
-          <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-2 h-2 bg-cyan-400 animate-pulse" />
+            <p className="text-cyan-400 text-[9px] tracking-[0.4em] uppercase font-bold">
+              Proof_of_Contribution
+            </p>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase">
             Verified <span className="text-cyan-400">History</span>
           </h2>
         </div>
 
-        {/* MOBILE VIEW: Vertical Log Cards (Hidden on Desktop) */}
-        <div className="md:hidden space-y-4">
-          {contributions.map((item) => (
+        {/* FEATURED HIGHLIGHT: X Space */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 relative overflow-hidden border border-cyan-400/30 bg-zinc-950 p-2 md:p-10"
+        >
+          {/* Subtle Background Glow */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/5 blur-[80px] -z-10" />
+          
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            {/* The Image from X */}
+            <div className="w-full md:w-1/3 shrink-0  overflow-hidden border border-white/10 shadow-2xl">
+              <img src="/space.jpg" alt="X Space Recording" className="w-full h-auto" />
+            </div>
+
+            {/* Space Details */}
+            <div className="flex-1 p-3">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="px-2 py-0.5 bg-cyan-400 text-black text-[8px] font-black uppercase rounded">Top Performance</span>
+              </div>
+              
+              <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter mb-4">
+                space: <span className="text-cyan-400">Lets Round it Up</span>
+              </h3>
+              
+              <p className="text-zinc-400 font-sans text-sm md:text-base leading-relaxed mb-6">
+                Directly engaged with over 5.6K listeners in a high-stakes ecosystem dialogue. 
+                Managed live moderation, speaker onboarding, and technical uptime for a 
+                47-hour broadcast window.
+              </p>
+
+              <div className="flex flex-wrap gap-6 border-t border-white/5 pt-6">
+                <div>
+                  <p className="text-zinc-600 text-[9px] uppercase tracking-widest mb-1">Engagement</p>
+                  <p className="text-cyan-400 font-bold text-xl">5.6K+ Tuned In</p>
+                </div>
+                <div>
+                  <p className="text-zinc-600 text-[9px] uppercase tracking-widest mb-1">Duration</p>
+                  <p className="text-white font-bold text-xl">47h 37m</p>
+                </div>
+                <div className="ml-auto self-end">
+                  <a href="https://x.com/ej_onx/status/2050085694102557061?s=20" target="_blank" className="text-[10px] font-bold text-white bg-zinc-900 px-4 py-2 border border-white/10 hover:border-cyan-400 transition-colors uppercase tracking-widest">
+                    View Recording
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {contributions.map((item, index) => (
             <motion.div 
-              key={`${item.project}-mob`}
-              initial={{ opacity: 0, y: 10 }}
+              key={item.project}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="p-6 bg-zinc-900/20 border border-white/5 rounded-2xl relative overflow-hidden"
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group p-6 bg-zinc-900/10 border border-white/5 hover:border-cyan-400/30 transition-all duration-500 rounded-md relative overflow-hidden flex flex-col justify-between"
             >
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-white font-black text-xl uppercase tracking-tighter">
-                  {item.project}
-                </span>
-                <div className="flex items-center gap-1.5">
-                   <span className={`text-[8px] font-bold ${item.status === 'ACTIVE' ? 'text-cyan-400' : 'text-zinc-600'}`}>{item.status}</span>
-                   <div className={`w-1 h-1 rounded-full ${item.status === 'ACTIVE' ? 'bg-cyan-400 animate-pulse' : 'bg-zinc-700'}`} />
+              <div>
+                <div className="flex items-start gap-6 mb-6">
+                  <div className="w-14 h-14 shrink-0 rounded-xl bg-zinc-900 border border-white/10 flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-500">
+                    <img src={item.logo} alt={item.project} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex flex-col">
+                    <h3 className="text-2xl font-black text-white uppercase tracking-tighter group-hover:text-cyan-400 transition-colors">
+                      {item.project}
+                    </h3>
+                    <span className="text-cyan-400/80 text-[10px] uppercase tracking-[0.2em] font-bold mt-1">
+                      {item.role}
+                    </span>
+                  </div>
                 </div>
+                <p className="text-zinc-500 text-sm leading-relaxed font-sans max-w-sm mb-8">
+                  {item.description}
+                </p>
               </div>
-              
-              <div className="space-y-3">
-                <div>
-                  <p className="text-zinc-600 text-[9px] uppercase tracking-widest font-bold">Role / Period</p>
-                  <p className="text-zinc-300 text-xs">{item.role} <span className="text-zinc-700 mx-2">|</span> {item.period}</p>
-                </div>
-                <div>
-                  <p className="text-zinc-600 text-[9px] uppercase tracking-widest font-bold">Impact_Log</p>
-                  <p className="text-zinc-500 text-xs leading-relaxed mt-1"> {item.impact}</p>
-                </div>
+
+              <div className="pt-4">
+                <a href={item.link} target="_blank" className="inline-flex items-center gap-2 text-[10px] font-bold text-zinc-400 hover:text-cyan-400 tracking-widest uppercase transition-colors group/btn">
+                  Visit Project
+                  <svg className="w-3 h-3 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
               </div>
-              
-              {/* Corner Glow for Active Projects */}
-              {item.status === 'ACTIVE' && (
-                <div className="absolute top-0 right-0 w-12 h-12 bg-cyan-400/5 blur-xl pointer-events-none" />
-              )}
+              <div className="absolute bottom-0 right-0 w-12 h-[1px] bg-zinc-800 group-hover:bg-cyan-400 transition-colors duration-500" />
             </motion.div>
           ))}
         </div>
-
-        {/* DESKTOP VIEW: Tactical Table (Hidden on Mobile) */}
-        <div className="hidden md:block w-full">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-white/10 text-left text-zinc-600 text-[10px] tracking-[0.3em] uppercase">
-                <th className="pb-6 font-bold">Protocol_Entity</th>
-                <th className="pb-6 font-bold">Operational_Role</th>
-                <th className="pb-6 font-bold">Impact_Metric</th>
-                <th className="pb-6 font-bold text-right">Status</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/5">
-              {contributions.map((item) => (
-                <motion.tr 
-                  key={item.project}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  className="group hover:bg-white/[0.01] transition-colors"
-                >
-                  <td className="py-10">
-                    <div className="flex flex-col">
-                      <span className="text-white font-black text-2xl tracking-tighter uppercase italic group-hover:text-cyan-400 transition-colors leading-none">
-                        {item.project}
-                      </span>
-                      <span className="text-zinc-700 text-[9px] mt-2 tracking-widest uppercase">{item.period}</span>
-                    </div>
-                  </td>
-                  <td className="py-10 align-top pt-11 text-zinc-400 text-[11px] uppercase tracking-widest font-bold">
-                    {item.role}
-                  </td>
-                  <td className="py-10 align-top pt-11 max-w-sm">
-                    <p className="text-zinc-500 text-xs leading-relaxed italic opacity-80 group-hover:opacity-100 transition-opacity">
-                      // {item.impact}
-                    </p>
-                  </td>
-                  <td className="py-10 text-right align-top pt-11">
-                    <div className="inline-flex items-center gap-3 bg-zinc-900/40 px-3 py-1.5 rounded-md border border-white/5">
-                      <span className={`text-[9px] font-black tracking-[0.2em] ${item.status === 'ACTIVE' ? 'text-cyan-400' : 'text-zinc-700'}`}>
-                        {item.status}
-                      </span>
-                      <div className={`w-1 h-1 rounded-full ${item.status === 'ACTIVE' ? 'bg-cyan-400 animate-pulse' : 'bg-zinc-800'}`} />
-                    </div>
-                  </td>
-                </motion.tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
       </div>
     </section>
   );
