@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Home, Phone, Globe, Award, MessageSquare, History } from "lucide-react";
+import { Home, Phone, Globe, Award, History } from "lucide-react";
 
 const navLinks = [
   { name: "Top", target: "home", icon: <Home size={18} /> },
