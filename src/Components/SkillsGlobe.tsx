@@ -5,6 +5,7 @@ const skills = [
   "Community Moderation",
   "Web3 Brand Ambassadorship",
   "Technical Content Creation",
+  "Growth Strategy"
 ];
 
 const SkillsGlobe = () => {

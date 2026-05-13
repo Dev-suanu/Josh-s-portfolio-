@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
-  const roles = ["Web3 Ambassador", "Space Host", "Content Creator"];
+  const roles = ["Web3 Ambassador", "Space Host", "Content Creator", "Growth Strategist"];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -79,7 +79,7 @@ const Hero = () => {
           
           {/* Front Image */}
           <div className="absolute inset-0 backface-hidden rounded-2xl border-2 border-cyan-400/30 shadow-[0_0_30px_rgba(34,211,238,0.2)] overflow-hidden">
-            <img src="/josh.jpg" alt="PFP Front" className="w-full h-full object-cover" />
+            <img src="/nj.jpg" alt="PFP Front" className="w-full h-full object-cover" />
           </div>
 
           {/* Back Image */}
